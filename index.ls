@@ -839,8 +839,17 @@ function pcomplain { msg, internal, error, stack-trace, code, stack-rewind = 0 }
 
     void
 
+# Allow user to override a variable.
+# (For example, process doesn't exist in phantomjs.)
+# Throws a generic exception.
+
+function mock what, using
+    if not is-str what
+        throw new Error 'variable to mock should be a string'
+    global[what] = using
+
 Identifier.main = {
-    import-all, import-kind,
+    import-all, import-kind, mock,
     shell-quote, shell-parse,
     ord, chr, bullet, log, info,
     err-set, iwarn, ierror, warn, error,
