@@ -33,6 +33,8 @@ Sys =
     sync: false
     err-capture: false
     out-capture: true
+    err-list: false
+    out-list: false
     slurp: true
     ignore-node-syserr: false
     keep-trailing-newline: false
